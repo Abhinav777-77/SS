@@ -46,7 +46,7 @@ export default function ForgotPassword() {
     setIsLoading(true);
     try {
       const email=formData.email
-      const res = await axios.post("http://localhost:7070/api/auth/forgot-password", {email});
+      const res = await axios.post("https://abhinav777-77-fl.hf.space/api/auth/forgot-password", {email});
       if (res.status === 200) {
         toast({
           title: "EMail",
@@ -85,7 +85,7 @@ export default function ForgotPassword() {
 
     try {
       setIsLoading(true);
-      const res = await axios.post("http://localhost:7070/api/auth/reset-password",formData);
+      const res = await axios.post("https://abhinav777-77-fl.hf.space/api/auth/reset-password",formData);
 
       if (res.status === 200) {
         toast({
