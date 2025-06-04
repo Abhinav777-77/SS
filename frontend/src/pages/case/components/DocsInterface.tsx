@@ -9,7 +9,7 @@ const DocsInterface = () => {
 
   useEffect(() => {
     const caseId = sessionStorage.getItem("caseId"); // Replace with actual case ID
-    fetch(`http://localhost:7070/api/report/display?case_id=${caseId}`)
+    fetch(`https://abhinav777-77-fl.hf.space/api/report/display?case_id=${caseId}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch analysis data");
@@ -27,7 +27,7 @@ const DocsInterface = () => {
       return;
     }
 
-    fetch(`http://localhost:7070/api/report/fetch?case_id=${caseId}`)
+    fetch(`https://abhinav777-77-fl.hf.space/api/report/fetch?case_id=${caseId}`)
       .then(async (res) => {
         const data = await res.json();
         if (!res.ok) {
