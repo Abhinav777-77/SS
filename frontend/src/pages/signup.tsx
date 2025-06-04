@@ -65,7 +65,7 @@ export default function SignIn() {
       });
       
       // Configure axios with proper CORS settings
-      const responseback = await axios.post('http://localhost:7070/api/auth/register', 
+      const responseback = await axios.post('https://abhinav777-77-fl.hf.space/api/auth/register', 
         {
           email: formData.email,
           password: formData.password,
