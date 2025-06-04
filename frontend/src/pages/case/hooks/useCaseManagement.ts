@@ -114,7 +114,7 @@ export function useCaseManagement(caseId?: string) {
       });
         
       // Fix the endpoint URL by adding the /api prefix
-      const response = await fetch("http://localhost:7070/api/analysis/analyze", {
+      const response = await fetch("https://abhinav777-77-fl.hf.space/api/analysis/analyze", {
         method: "POST",
         body: formData,
       });
@@ -212,7 +212,7 @@ export function useCaseManagement(caseId?: string) {
         console.log(`${pair[0]}: ${pair[1]}`);
       }
 
-      const reportResponse = await fetch("http://localhost:7070/api/report/generate", {
+      const reportResponse = await fetch("https://abhinav777-77-fl.hf.space/api/report/generate", {
         method: "POST",
         body: formData,
         credentials: 'include',
@@ -276,7 +276,7 @@ export function useCaseManagement(caseId?: string) {
       const formData = new FormData();
       formData.append("images", uploadedImages[0].file);
 
-      const response = await fetch("http://localhost:7070/enhance", {
+      const response = await fetch("https://abhinav777-77-fl.hf.space/enhance", {
         method: "POST",
         body: formData,
       });
@@ -333,7 +333,7 @@ export function useCaseManagement(caseId?: string) {
       formData.append('user_id',userId)
 
       console.log("Sending request to analyze_images endpoint...");
-      const response = await fetch("http://localhost:7070/api/analysis/analyze_images", {
+      const response = await fetch("https://abhinav777-77-fl.hf.space/api/analysis/analyze_images", {
         method: "POST",
         body: formData,
       });
