@@ -45,7 +45,7 @@ export default function AdminDashboard() {
   //   const getRole=async()=>{
 
   //     try{
-  //       const get_role=await axios.get("http://localhost:7070/api/auth/protected",{
+  //       const get_role=await axios.get("https://abhinav777-77-fl.hf.space/api/auth/protected",{
   //             headers: { "x-auth-token": token },
   //           })
   //       if(get_role.data.role!="admin"){
@@ -62,7 +62,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchAllCases = async () => {
       try {
-        const response = await fetch("http://localhost:7070/api/cases/all-cases");
+        const response = await fetch("https://abhinav777-77-fl.hf.space/api/cases/all-cases");
 
         if (!response.ok) throw new Error("Failed to fetch cases");
 
