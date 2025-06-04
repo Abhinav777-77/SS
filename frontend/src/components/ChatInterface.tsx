@@ -104,7 +104,7 @@ export function ChatInterface({ selectedImage, analyzedImages = [], caseId }: Ch
         formData.append('case_id', caseId);
       }
 
-      const response = await fetch("http://localhost:7070/api/analysis/process_query", {
+      const response = await fetch("https://abhinav777-77-fl.hf.space/api/analysis/process_query", {
         method: 'POST',
         body: formData,
         credentials: 'include',
