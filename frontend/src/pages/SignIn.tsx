@@ -1,5 +1,5 @@
-
 import { useState } from "react";
+import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -72,14 +72,33 @@ const handleSubmit = async (e: React.FormEvent) => {
         if (user.id) {
           sessionStorage.setItem("userid", user.id);
         }
-        const  userId = sessionStorage.getItem("userid")
-        navigate(`/dashboard/${userId}`)
-        // navigate("/verification");
-
-        toast({
+        // const  userId = sessionStorage.getItem("userid")
+        // navigate(`/dashboard/${userId}`)
+        // // navigate("/verification");
+        try {
+          const get_role=await axios.get("http://localhost:7070/api/auth/protected",{
+            headers: { "x-auth-token": token },
+          })
+          console.log(get_role)
+            if(get_role.data.role=="common"){
+              setTimeout(() => {
+                // Navigate to dashboard with userId in the URL
+                navigate(`/common`);
+              }, 1000);
+            }else if(get_role.data.role=="investigator"){
+              setTimeout(() => {
+                // Navigate to dashboard with userId in the URL
+                navigate(`/dashboard`);
+              }, 1000);
+            }
+             toast({
           title: "Login Successful",
           description: `Welcome back, ${user.email}`,
         });
+        } catch (error) {
+          console.log(error)
+        }
+       
       } else {
         toast({
           variant: "destructive",
@@ -189,5 +208,4 @@ const handleSubmit = async (e: React.FormEvent) => {
     </div>
   );
 }
-
 
