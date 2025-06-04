@@ -90,7 +90,7 @@ export default function Dashboard() {
     const getRole=async()=>{
 
       try{
-        const get_role=await axios.get("http://localhost:7070/api/auth/protected",{
+        const get_role=await axios.get("https://abhinav777-77-fl.hf.space/api/auth/protected",{
               headers: { "x-auth-token": token },
             })
         if(get_role.data.role!="investigator"){
@@ -135,7 +135,7 @@ function formatDate(dateObject: any): string {
       console.log("Auth token:", sessionStorage.getItem("authToken")?.substring(0, 10) + "...");
       
       // Try with a trailing slash
-      const response = await fetch(`http://localhost:7070/api/cases/?user_id=${userId}`, {
+      const response = await fetch(`https://abhinav777-77-fl.hf.space/api/cases/?user_id=${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -208,7 +208,7 @@ function formatDate(dateObject: any): string {
           setbrowserloc(browserlocation)
         })
       
-      const response = await fetch("http://localhost:7070/api/cases/create", {
+      const response = await fetch("https://abhinav777-77-fl.hf.space/api/cases/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
