@@ -72,8 +72,9 @@ const handleSubmit = async (e: React.FormEvent) => {
         if (user.id) {
           sessionStorage.setItem("userid", user.id);
         }
-
-        navigate("/verification");
+        const  userId = sessionStorage.getItem("userid")
+        navigate(`/dashboard/${userId}`)
+        // navigate("/verification");
 
         toast({
           title: "Login Successful",
