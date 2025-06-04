@@ -98,7 +98,7 @@ export default function Case2() {
 
     useEffect(()=>{
       const get_status=async()=>{
-        const status=await axios.get(`http://localhost:7070/api/cases/getstatus/${caseId}`)
+        const status=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/getstatus/${caseId}`)
         
         if(status.data.status==="closed"){
           setcaseEnded(true);
@@ -112,7 +112,7 @@ export default function Case2() {
       const fetch_img_analysis=async()=>{
         try{
 
-          const img_analysis=await axios.get(`http://localhost:7070/api/cases/fetch_img_analysis/${caseId}`)
+          const img_analysis=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/fetch_img_analysis/${caseId}`)
           if(img_analysis){
             console.log(img_analysis);
             setAll_img_analysis(img_analysis.data.analysis_results);
@@ -138,7 +138,7 @@ export default function Case2() {
 
     useEffect(()=>{
         const get_usermail=async()=>{
-          const res=await axios.get(`http://localhost:7070/api/cases/getOfficermail/${caseId}`)
+          const res=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/getOfficermail/${caseId}`)
           const username = res.data.email.split('@')[0];
           const formattedName = username.charAt(0).toUpperCase() + username.slice(1);
           setofficer(formattedName);
@@ -161,7 +161,7 @@ export default function Case2() {
         // console.log("Sending invitation email to:", email);
     
         try {
-          const res = await fetch("http://localhost:7070/api/invitation/send-invitation", {
+          const res = await fetch("https://abhinav777-77-fl.hf.space/api/invitation/send-invitation", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -201,7 +201,7 @@ export default function Case2() {
     useEffect(() => {
       const fetchImages = async () => {
         try {
-          const getmsg=await axios.get(`http://localhost:7070/api/messages/conversations/${caseId}`,
+          const getmsg=await axios.get(`https://abhinav777-77-fl.hf.space/api/messages/conversations/${caseId}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -235,7 +235,7 @@ export default function Case2() {
     useEffect(()=>{
         const fetchImages = async () =>{
             try{
-                const getImages=await axios.get(`http://localhost:7070/api/cases/images/${caseId}`)
+                const getImages=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/images/${caseId}`)
 
                 const allFilePaths = getImages.data.map(image => image.file_path);
                 setUploadedImages(allFilePaths);
@@ -281,7 +281,7 @@ export default function Case2() {
       });
     
       try {
-        const response = await axios.post(`http://localhost:7070/api/cases/upload/${caseId}`, formData, {
+        const response = await axios.post(`https://abhinav777-77-fl.hf.space/api/cases/upload/${caseId}`, formData, {
             headers: {
                 Authorization: `Bearer ${token}`,
               },
@@ -341,7 +341,7 @@ export default function Case2() {
     
       try {
         // Send the message to the server
-        const response = await axios.post(`http://localhost:7070/api/messages/message/${caseId}`, {
+        const response = await axios.post(`https://abhinav777-77-fl.hf.space/api/messages/message/${caseId}`, {
           text: currentMessage,
           senderId: decoded['email']  // Handle senderId logic as per your requirement
         },{
@@ -382,7 +382,7 @@ export default function Case2() {
     useEffect(()=>{
       const fetchPreviousReport = () => {
 
-        fetch(`http://localhost:7070/api/report/fetch?case_id=${caseId}`)
+        fetch(`https://abhinav777-77-fl.hf.space/api/report/fetch?case_id=${caseId}`)
           .then(async (res) => {
             const data = await res.json();
             if (!res.ok) {
