@@ -76,7 +76,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         // navigate(`/dashboard/${userId}`)
         // // navigate("/verification");
         try {
-          const get_role=await axios.get("http://localhost:7070/api/auth/protected",{
+          const get_role=await axios.get("https://abhinav777-77-fl.hf.space/api/auth/protected",{
             headers: { "x-auth-token": token },
           })
           console.log(get_role)
