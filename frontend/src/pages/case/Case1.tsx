@@ -116,7 +116,7 @@ export default function Case1() {
 
   useEffect(()=>{
     const get_status=async()=>{
-      const status=await axios.get(`http://localhost:7070/api/cases/getstatus/${caseId}`)
+      const status=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/getstatus/${caseId}`)
       console.log(status);
       if(status.data.status==="closed"){
         setcaseEnded(true);
@@ -130,7 +130,7 @@ export default function Case1() {
     const fetch_img_analysis=async()=>{
       try{
 
-        const img_analysis=await axios.get(`http://localhost:7070/api/cases/fetch_img_analysis/${caseId}`)
+        const img_analysis=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/fetch_img_analysis/${caseId}`)
         if(img_analysis){
           console.log(img_analysis);
           setAll_img_analysis(img_analysis.data.analysis_results);
@@ -145,7 +145,7 @@ export default function Case1() {
 
   useEffect(()=>{
     const filee=async()=>{
-      const filee_user=await axios.get(`http://localhost:7070/api/cases/getfilee/${caseId}`)
+      const filee_user=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/getfilee/${caseId}`)
       if(filee_user.data.message==="common"){
         setfileeuser(true);
       }
@@ -156,7 +156,7 @@ export default function Case1() {
   useEffect(()=>{
     const fetchPreviousReport = () => {
 
-      fetch(`http://localhost:7070/api/report/fetch?case_id=${caseId}`)
+      fetch(`https://abhinav777-77-fl.hf.space/api/report/fetch?case_id=${caseId}`)
         .then(async (res) => {
           const data = await res.json();
           if (!res.ok) {
@@ -235,7 +235,7 @@ export default function Case1() {
       if(fileeuser){
 
         try{
-            const getImages=await axios.get(`http://localhost:7070/api/cases/images/${caseId}`)
+            const getImages=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/images/${caseId}`)
             console.log(getImages);
             const allFilePaths = getImages.data.map(image => image.file_path);
             setImagesuploaded(allFilePaths);
@@ -604,7 +604,7 @@ export default function Case1() {
   
   useEffect(()=>{
     const get_usermail=async()=>{
-      const res=await axios.get(`http://localhost:7070/api/cases/getUsermail/${caseId}`)
+      const res=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/getUsermail/${caseId}`)
       const username = res.data.email.split('@')[0];
         const formattedName = username.charAt(0).toUpperCase() + username.slice(1);
         setofficer(formattedName);
@@ -661,7 +661,7 @@ const getInitials = (fullName) => {
 
     async function fetchUserProfile() {
       try {
-        const res = await fetch(`http://localhost:7070/api/auth/dashboard/${userId}`, {
+        const res = await fetch(`https://abhinav777-77-fl.hf.space/api/auth/dashboard/${userId}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -698,7 +698,7 @@ const getInitials = (fullName) => {
     }
 
     try {
-      const res = await fetch("http://localhost:7070/api/invitation/send-invitation", {
+      const res = await fetch("https://abhinav777-77-fl.hf.space/api/invitation/send-invitation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -738,7 +738,7 @@ const getInitials = (fullName) => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const getmsg=await axios.get(`http://localhost:7070/api/messages/conversations/${caseId}`,
+        const getmsg=await axios.get(`https://abhinav777-77-fl.hf.space/api/messages/conversations/${caseId}`,
           {
               headers: {
                   Authorization: `Bearer ${token}`
@@ -790,7 +790,7 @@ const sendMessage = async () => {
 
 
   try {
-    const response = await axios.post(`http://localhost:7070/api/messages/message/${caseId}`, {
+    const response = await axios.post(`https://abhinav777-77-fl.hf.space/api/messages/message/${caseId}`, {
       text: currentMessage,
       senderId: ""
     },{
@@ -823,7 +823,7 @@ const sendMessage = async () => {
 useEffect(()=>{
   const getRole=async()=>{
     try{
-      const response=await axios.get(`http://localhost:7070/api/cases/getRoles/${caseId}`);
+      const response=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/getRoles/${caseId}`);
       if(response.data.role=="common"){
         setcanMessage(true);
       }
@@ -837,7 +837,7 @@ useEffect(()=>{
 
 async function Reference() {
   try {
-    const getreference = await axios.get(`http://localhost:7070/api/cases/reference/${caseId}`);
+    const getreference = await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/reference/${caseId}`);
 
     if (getreference.status === 200) {
       const casesArray = getreference.data;  // This is the array you got
@@ -890,7 +890,7 @@ const sortedCases = [...filteredCases].sort((a, b) => {
 
   const End_case=async()=>{
     try{
-      const end_case=await axios.get(`http://localhost:7070/api/cases/endcase/${caseId}`)
+      const end_case=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/endcase/${caseId}`)
       setcaseEnded(true);
     }catch(err){
       console.log(err)
@@ -899,7 +899,7 @@ const sortedCases = [...filteredCases].sort((a, b) => {
   }
   const Reopen_case=async()=>{
     try{
-      const reopen_case=await axios.get(`http://localhost:7070/api/cases/reopencase/${caseId}`)
+      const reopen_case=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/reopencase/${caseId}`)
       setcaseEnded(false);
     }catch(err){
       console.log(err)
@@ -909,7 +909,7 @@ const sortedCases = [...filteredCases].sort((a, b) => {
 
   const ReferenceReport = async(case_id) => {
 
-    fetch(`http://localhost:7070/api/report/fetch?case_id=${case_id}`)
+    fetch(`https://abhinav777-77-fl.hf.space/api/report/fetch?case_id=${case_id}`)
       .then(async (res) => {
         const data = await res.json();
         console.log(data);
@@ -932,7 +932,7 @@ const sortedCases = [...filteredCases].sort((a, b) => {
       });
         try{
 
-          const img_analysis=await axios.get(`http://localhost:7070/api/cases/fetch_img_analysis/${caseId}`)
+          const img_analysis=await axios.get(`https://abhinav777-77-fl.hf.space/api/cases/fetch_img_analysis/${caseId}`)
           if(img_analysis){
             setref_img_analysis(img_analysis.data.analysis_results);
           }
