@@ -43,7 +43,7 @@ export default function PublicProfile() {
 
     async function fetchUserProfile() {
       try {
-        const res = await fetch(`http://localhost:7070/api/auth/dashboard/${userId}`, {
+        const res = await fetch(`https://abhinav777-77-fl.hf.space/api/auth/dashboard/${userId}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
